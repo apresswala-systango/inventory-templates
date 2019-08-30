@@ -25,11 +25,20 @@ let fetchCRMDetails = async function(quoteId) {
     var zCrmAccessTokenEndPoint = {
         method: 'POST',
         url: 'https://accounts.zoho.com/oauth/v2/token',
+        /* Commented on 26th Aug 2019 by Squirrek Dev due to invalid auth
         qs: {
             refresh_token: '1000.f9b2064238347e9ba0e845390a686dea.9b17b61c9b5ab4612cde75cff92caaf8',
             client_id: '1000.0N017MZTJJ119981609ND9XOK8TCBH',
             client_secret: 'f11791654bc90a36d7a1e205d948219922ddd8976a',
             redirect_uri: 'https://www.omnigroup.com.au/',
+            grant_type: 'refresh_token'
+        }
+        */
+        qs: {
+            refresh_token: '1000.6876375e7908c386cc9129435832a0c9.154aa5e2c1bad198fcc355b1434cafd8',
+            client_id: '1000.GW0Z7N7AO75Q37644UMJGDTGPYHG9G',
+            client_secret: 'd305c960122c072f97992064d00368190d94c02412',
+            redirect_uri: 'http://scripts.squirrelcrmhub.com.au/zoho_scripts/squirrel/zoho_v2/oauth2callback.php',
             grant_type: 'refresh_token'
         }
     };

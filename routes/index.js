@@ -51,6 +51,18 @@ let fetchCRMDetails = async function(quoteId) {
         headers: { authorization: 'Zoho-oauthtoken ' + accessToken }
     };
     let zCRMQuoteFullResp = await fetchResponse(getQuoteDetailsEndPoint);
+    if(zCRMQuoteFullResp.data[0].Product_Details.length) {
+        for(var i=0; i<zCRMQuoteFullResp.data[0].Product_Details.length; i++) {
+            productId = zCRMQuoteFullResp.data[0].Product_Details[i].product.id;
+            var getProductDetailsEndPoint = {
+                method: 'GET',
+                url: 'https://www.zohoapis.com/crm/v2/Products/' + productId,
+                headers: { authorization: 'Zoho-oauthtoken ' + accessToken }
+            };
+            let zCRMProductFullResp = await fetchResponse(getProductDetailsEndPoint);
+            zCRMQuoteFullResp.data[0].Product_Details[i].Usage_Unit = zCRMProductFullResp.data[0].Usage_Unit;
+        }
+    }
     var getAccountDetailsEndPoint = {
         method: 'GET',
         url: 'https://www.zohoapis.com/crm/v2/Accounts/' + zCRMQuoteFullResp.data[0].Account_Name.id,

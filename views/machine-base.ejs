@@ -36,7 +36,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;Ref. No.</td>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;
+                                    <%= quoteDetails.Quote_No %>
+                                </td>
                             </tr>
                             <tr>
                                 <td style="padding-top:198px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
@@ -107,9 +109,10 @@
                                     <thead>
                                         <tr>
                                             <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
-                                            <td style="width: 66%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
+                                            <td style="width: 60%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
                                             <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">MOQ</td>
-                                            <td align="right" style="width: 18%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
+                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">Usage unit</td>
+                                            <td align="right" style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,6 +126,9 @@
                                                 </td>
                                                 <td align="center" style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
                                                     <%= quoteDetails.Product_Details[i].quantity %>
+                                                </td>
+                                                <td align="center" style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                    <%= quoteDetails.Product_Details[i].Usage_Unit %>
                                                 </td>
                                                 <td align="right" style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
                                                     <%= quoteDetails.Product_Details[i].net_total %>

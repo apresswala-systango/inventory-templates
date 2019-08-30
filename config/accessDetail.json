@@ -1,0 +1,7 @@
+{
+	"clientId": "1000.N9CP8MI5S1RI74274S9OPJULELQRVH",
+	"clientSecret": "8b49e70352099b5f3d4bd904d05c46e4bd9625c234",
+	"redirect_uri": "http://staging.creatorappstore.com:3001/zSign/genarteAuthToken",
+	"scope": "ZohoSign.documents.all",
+	"zCreatorAuthtoken" : "d4f2b60db0b64ee78e2b660ff832f174"
+}

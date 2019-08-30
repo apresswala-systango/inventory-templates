@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= name %>
+    </title>
+</head>
+
+<body>
+    <% include partials/menu %>
+        <div class="content">
+            <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="100px"></center>
+            <div id="coverPage">
+                <% include partials/scripts %>
+                    <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                    <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:35px 52px"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                </td>
+                                <td style="padding:35px 32px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo2.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="template-heading" colspan="2">Packaging Solution Proposal</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Client:</b>&nbsp;&nbsp;
+                                    <%= accountDetails.Account_Name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Packaging Consultant:</b>&nbsp;&nbsp;
+                                    <%= quoteDetails.Owner.name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;Ref. No.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 289px;" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/cover-page-image.png"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <div id="pdfdiv">
+                <% include partials/scripts %>
+                    <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                    <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                    <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
+                        <thead>
+                            <tr>
+                                <td style="padding:35px 52px"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                </td>
+                                <td style="padding:35px 32px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo2.png"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="template-heading-2">Packaging Solution Proposal</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding:32px 32px 32px 52px">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tr>
+                                            <td width="70%" style="font-size: 1.4rem;"><b style="font-size: 24px"><%= accountDetails.Account_Name %></b><br>
+                                                <% contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
+                                                    <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
+                                                        <br>
+                                                        <%= quoteDetails.Billing_City ? quoteDetails.Billing_City+', ' : '' %>
+                                                            <%= quoteDetails.Billing_State ? quoteDetails.Billing_State : '' %>
+                                                                <%= quoteDetails.Billing_Code ? quoteDetails.Billing_Code : '' %><br>
+                                                                    <% contactDetails ? 'Phone: '+contactDetails.data[0].Phone : '' %>
+                                            </td>
+                                            <td width="30%" align="right">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td width="50%" class="txt-bold" style="font-size: 1.4rem;">Proposal No</td>
+                                                        <td width="50%" align="right" style="font-size: 1.4rem;">3544</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txt-bold" style="font-size: 1.4rem;">Account No</td>
+                                                        <td align="right" style="font-size: 1.4rem;">
+                                                            <%= accountDetails.Account_Number %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="txt-bold" style="font-size: 1.4rem;">Quoted By</td>
+                                                        <td align="right" style="font-size: 1.4rem;">
+                                                            <%= quoteDetails.Owner.name %>
+                                                        </td>
+                                                    </tr>
+                                                    <% var quoteDate = new Date(quoteDetails.Created_Time);
+                                            var dd = quoteDate.getDate();
+                                            var mm = quoteDate.getMonth() + 1; //January is 0!
+                                            
+                                            var yyyy = quoteDate.getFullYear();
+                                            if (dd < 10) {
+                                            dd = '0' + dd;
+                                            } 
+                                            if (mm < 10) {
+                                            mm = '0' + mm;
+                                            } 
+                                            quoteDate = dd + '/' + mm + '/' + yyyy; %>
+                                                        <tr>
+                                                            <td class="txt-bold" style="font-size: 1.4rem;">Quote Date</td>
+                                                            <td align="right" style="font-size: 1.4rem;">
+                                                                <%= quoteDate %>
+                                                            </td>
+                                                        </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem;">
+                                    <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> Thank you for your time and the interest in our packaging solutions. Please see below the details on the products which we are proposing. Please don’t hesitate to contact me if you have any questions or feedback.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 0px 32px 0px 52px">
+                                    <table cellspacing="0" cellpadding="0" border="1" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
+                                                <td style="width: 66%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
+                                                <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">MOQ</td>
+                                                <td align="right" style="width: 18%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(var i=0; i<quoteDetails.Product_Details.length; i++) { %>
+                                                <tr>
+                                                    <td style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                        <%= quoteDetails.Product_Details[i].product.Product_Code %>
+                                                    </td>
+                                                    <td style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                        <%= quoteDetails.Product_Details[i].product_description %>
+                                                    </td>
+                                                    <td align="center" style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                        <%= quoteDetails.Product_Details[i].quantity %>
+                                                    </td>
+                                                    <td align="right" style="padding: 10px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                        <%= quoteDetails.Product_Details[i].net_total %>
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding:32px 32px 32px 52px" align="right">
+                                    <div style="border-radius: 10px; border: 2px solid #333; padding: 10px; width: 45%;">
+                                        <table cellspacing="5" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="padding:0px 0px 10px 0px;font-size:1rem !important;font-weight: bold" colspan="2">TERMS & CONDITIONS:</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%" valign="top" style="font-size:1rem !important;font-weight: bold">
+                                                    Quotes: </td>
+                                                <td width="80%" style="font-size:1rem !important;"> 30 days unless otherwise stated. E & OE.</td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" style="font-size:1rem !important;font-weight: bold">Currency:
+                                                </td>
+                                                <td style="font-size:1rem !important;">
+                                                    <%= quoteDetails.Terms_and_Conditions %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" style="font-size:1rem !important;font-weight: bold">GST:</td>
+                                                <td style="font-size:1rem !important;">All prices ex GST</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+            </div>
+            <div id="lastPages" style="margin: 0px;padding: 0px">
+                <% include partials/scripts %>
+                    <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                    <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                    <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;bottom:0px"></div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td style="background: #fff;page-break-before: always">
+                                    <% include partials/add %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="page-break-before: always">
+                                    <% include partials/last-page %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <div style="position:fixed;top: 6px;right: 32px;" class="dopdf">
+            <a href="/inventory-templates/<%= name %>/<%= requestId %>/<%= quoteId %>/pdf"><img src="https://zoho.omnigroup.com.au/assets/images/pdf.png"></a>
+        </div>
+
+</body>
+
+</html>

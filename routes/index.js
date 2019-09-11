@@ -151,7 +151,14 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
             return element.innerHTML;
         })
         await page.setContent(dom);
-        await page.pdf({ displayHeaderFooter: false, printBackground: true, margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }, path: pdfPath, format: 'A4' });
+        await page.pdf({
+            displayHeaderFooter: false,
+            //headerTemplate: "<div style='width: 200px; background-color: #4286f4; position: relative; position: absolute; bottom: 0;'>Footer</div>",
+            printBackground: true,
+            margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
+            path: pdfPath,
+            format: 'A4'
+        });
         const page1 = await browser.newPage();
         await page1.goto("https://zoho.omnigroup.com.au/inventory-templates/" + templateName + "/" + quoteNo + "/viewQuote");
         // await page1.goto("file:///" + htmlFile, { timeout: 0, waitUntil: 'networkidle0' });

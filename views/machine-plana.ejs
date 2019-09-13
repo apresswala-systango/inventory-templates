@@ -10,8 +10,142 @@
 
 <body>
     <% include partials/menu %>
-        <div class="content">
-            <center style="padding-top:9%"><img src="https://zoho.omnigroup.com.au/assets/images/comingsoon.gif" width="55%"></center>
+    <div class="content">
+        <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="60px"></center>
+        <div id="coverPage">
+            <% include partials/scripts %>
+                <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
+                    <tbody>
+                        <tr>
+                            <td style="padding:35px 32px"><img style="height:200px;" src="https://zoho.omnigroup.com.au/assets/images/ThePerfectPalletWrapSolution.png"></td>
+                            <td style="padding:35px 52px" align="right" valign="top"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="template-heading" colspan="2">Proposal</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Client:</b>&nbsp;&nbsp;
+                                <%= accountDetails.Account_Name %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Packaging Consultant:</b>&nbsp;&nbsp;
+                                <%= quoteDetails.Owner.name %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;
+                                <%= quoteDetails.Quote_No %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top:198px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="2" style="padding:75px 55px 0px 55px" align="center">
+                                <img src="https://zoho.omnigroup.com.au/assets/images/footer.png" width="100%"></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="pdfdiv">
+                <% include partials/scripts %>
+                    <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                    <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                    <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
+                        <thead>
+                            <tr>
+                                <td style="padding:35px 32px" >&nbsp;</td>
+                                <td style="padding:35px 52px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                </td>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem;">
+                                     <% var quoteDate = new Date(quoteDetails.Created_Time);
+                                        var dd = quoteDate.getDate();
+                                        var mm = quoteDate.getMonth() + 1; //January is 0!
+                                        
+                                        var yyyy = quoteDate.getFullYear();
+                                        if (dd < 10) {
+                                        dd = '0' + dd;
+                                        } 
+                                        if (mm < 10) {
+                                        mm = '0' + mm;
+                                        } 
+                                        quoteDate = dd + '/' + mm + '/' + yyyy; %>
+                                        <%= quoteDate %><br><br>
+                                            <% contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
+                                                <%= accountDetails.Account_Name %><br>
+                                                    <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
+                                                        <br>
+                                                        <%= quoteDetails.Billing_City ? quoteDetails.Billing_City+', ' : '' %>
+                                                            <%= quoteDetails.Billing_State ? quoteDetails.Billing_State : '' %>
+                                                                <%= quoteDetails.Billing_Code ? quoteDetails.Billing_Code : '' %>                                                              
+                                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem;">
+                                    <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> “Thank you for your time and interest shown in the ‘Perfect Pallet Wrapping Solution’. On the following pages you will find all the information on the solution we are proposing.”<br><br> The Omni Pallet Wrappers
+                                        and Omni Stretch Wrap have been engineered together to minimise the required amount of stretch film to wrap a pallet while eliminating film breakages and improving load containment. It’s the award winning Omni Pallet
+                                        Wrapping Solution.<br><br> Our goals in providing you ‘The Perfect Pallet Wrapping Solution’ are:<br> • Reduce your stretch film usage by 50%<br> • Eliminate your stretch film breakages<br> • Save you 20% on pallet
+                                        wrapping costs<br> • Reduce plastic waste disposal and save our environment<br> • Improve your pallet load containment <br> • Increase your warehouse efficiency <br> • Prevent back injury from hand wrapping pallets
+                                        <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br><br><br>
+                                        <p style="font-weight: bold;font-size:1.4rem">
+                                            <%= quoteDetails.Owner.name %>
+                                        </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td colspan="2" style="padding:75px 55px 0px 55px" align="center">
+                                        <img src="https://zoho.omnigroup.com.au/assets/images/footer.png" width="100%"></td>
+                                </tr>
+                    </table>
+            </div>
+                <div id="lastPages" style="margin: 0px;padding: 0px">
+                        <% include partials/scripts %>
+                            <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                            <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                            <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;bottom:0px"></div>
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <!-- <td style="background: #fff;page-break-before: always">
+                                            <div style="position: relative; right: -5px; bottom: -20px; "><img src="https://zoho.omnigroup.com.au/assets/images/pic-4.png" width="100%"></div>
+                                        </td> -->
+                                        <td style="page-break-before: always">
+                                            <% include partials/product-specifications-plana %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="page-break-before: always">
+                                            <% include partials/omni-base %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background: #fff;page-break-before: always">
+                                            <% include partials/add %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="page-break-before: always">
+                                            <% include partials/last-page %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+    </div>
+        <div style="position:fixed;top: 6px;right: 32px;" class="dopdf">
+            <a href="/inventory-templates/<%= name %>/<%= requestId %>/<%= quoteId %>/pdf"><img src="https://zoho.omnigroup.com.au/assets/images/pdf.png"></a>
         </div>
 </body>
 

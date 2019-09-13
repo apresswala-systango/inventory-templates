@@ -147,9 +147,19 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
         const page = await browser.newPage();
         await page.goto("file:///" + htmlFile, { timeout: 0, waitUntil: 'networkidle0' });
         await page.goto("https://zoho.omnigroup.com.au/inventory-templates/" + templateName + "/" + quoteNo + "/viewQuote");
+        var dom = "";
+        try {
+            dom = await page.$eval('#pdfdiv', (element) => {
+                return element.innerHTML;
+            })  
+        } catch (error) {
+            dom = "";
+        }
+        /*
         const dom = await page.$eval('#pdfdiv', (element) => {
             return element.innerHTML;
         })
+        */
         await page.setContent(dom);
         await page.pdf({
             displayHeaderFooter: false,

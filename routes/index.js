@@ -133,6 +133,7 @@ router.get('/:templateName/:quoteId/viewQuote', async function(req, res, next) {
 
 //--- Download template ---//
 router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, next) {
+    const serverURL = "https://zoho.omnigroup.com.au/inventory-templates/";
     var requestId = req.params.requestId;
     var templateName = req.params.templateName;
     var quoteNo = req.params.quoteNo;
@@ -146,20 +147,10 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
         });
         const page = await browser.newPage();
         await page.goto("file:///" + htmlFile, { timeout: 0, waitUntil: 'networkidle0' });
-        await page.goto("https://zoho.omnigroup.com.au/inventory-templates/" + templateName + "/" + quoteNo + "/viewQuote");
-        var dom = "";
-        try {
-            dom = await page.$eval('#pdfdiv', (element) => {
-                return element.innerHTML;
-            })  
-        } catch (error) {
-            dom = "";
-        }
-        /*
+        await page.goto(serverURL + templateName + "/" + quoteNo + "/viewQuote");
         const dom = await page.$eval('#pdfdiv', (element) => {
             return element.innerHTML;
         })
-        */
         await page.setContent(dom);
         await page.pdf({
             displayHeaderFooter: false,
@@ -170,7 +161,7 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
             format: 'A4'
         });
         const page1 = await browser.newPage();
-        await page1.goto("https://zoho.omnigroup.com.au/inventory-templates/" + templateName + "/" + quoteNo + "/viewQuote");
+        await page1.goto(serverURL + templateName + "/" + quoteNo + "/viewQuote");
         // await page1.goto("file:///" + htmlFile, { timeout: 0, waitUntil: 'networkidle0' });
         const dom1 = await page1.$eval('#coverPage', (element) => {
             return element.innerHTML;
@@ -178,7 +169,7 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
         await page1.setContent(dom1);
         await page1.pdf({ displayHeaderFooter: false, printBackground: true, margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }, path: pdfPath1, format: 'A4' });
         const page2 = await browser.newPage();
-        await page2.goto("https://zoho.omnigroup.com.au/inventory-templates/" + templateName + "/" + quoteNo + "/viewQuote");
+        await page2.goto(serverURL + templateName + "/" + quoteNo + "/viewQuote");
         const dom2 = await page2.$eval('#lastPages', (element) => {
             return element.innerHTML;
         })

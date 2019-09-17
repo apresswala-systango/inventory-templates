@@ -6,6 +6,7 @@ const puppeteer = require('puppeteer');
 const image2base64 = require('image-to-base64');
 var unique = require('array-unique');
 const exec = require('await-exec');
+var config = require('../config/db.json');
 var router = express.Router();
 var pdfFiles = [];
 var pdfPath = "";
@@ -133,7 +134,7 @@ router.get('/:templateName/:quoteId/viewQuote', async function(req, res, next) {
 
 //--- Download template ---//
 router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, next) {
-    const serverURL = "https://zoho.omnigroup.com.au/inventory-templates/";
+    const serverURL = "http://localhost:"+config.port+"/"; //"https://zoho.omnigroup.com.au/inventory-templates/";
     var requestId = req.params.requestId;
     var templateName = req.params.templateName;
     var quoteNo = req.params.quoteNo;

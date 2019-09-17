@@ -2,5 +2,6 @@
     "host": "localhost",
     "user": "deepanjan",
     "password": "AaakhpM3LgsVXBMw",
-    "database": "deepanjan"
+    "database": "deepanjan",
+    "port": 3000
 }

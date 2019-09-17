@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "node ./bin/www"
+        "start": "node ./bin/www",
+        "dev": "nodemon ./bin/www"
     },
     "dependencies": {
         "array-unique": "^0.3.2",
@@ -24,5 +25,8 @@
         "serve-favicon": "^2.5.0",
         "util": "^0.12.0",
         "uuid4": "^1.1.4"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.2"
     }
 }

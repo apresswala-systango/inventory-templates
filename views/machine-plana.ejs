@@ -1,57 +1,34 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        <%= name %>
-    </title>
-    <% include partials/scripts %>
-</head>
-
-<body>
-    <% include partials/menu %>
-    <div class="content">
-        <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="60px"></center>
-        <div id="coverPage">
-            <% include partials/scripts %>
-                <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
-                <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
-                <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
-                    <tbody>
-                        <tr>
-                            <td style="padding:35px 32px"><img style="height:200px;" src="https://zoho.omnigroup.com.au/assets/images/ThePerfectPalletWrapSolution.png"></td>
-                            <td style="padding:35px 52px" align="right" valign="top"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td class="template-heading" colspan="2">Proposal</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Client:</b>&nbsp;&nbsp;
-                                <%= accountDetails.Account_Name %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Packaging Consultant:</b>&nbsp;&nbsp;
-                                <%= quoteDetails.Owner.name %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;
-                                <%= quoteDetails.Quote_No %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-top:198px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
-                        </tr>
-                        <!-- <tr>
-                            <td colspan="2" style="padding:75px 55px 0px 55px" align="center">
-                                <img src="https://zoho.omnigroup.com.au/assets/images/footer.png" width="100%"></td>
-                        </tr> -->
-                    </tbody>
-                </table>
-            </div>
+    <head>
+        <title>
+            <%= name %>
+        </title>
+    </head>
+    
+    <body>
+        <% include partials/menu %>
+            <div class="content">
+                <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="100px"></center>
+                <div id="coverPage">
+                    <% include partials/scripts %>
+                        <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                        <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
+                            <tbody>
+                                <tr>
+                                    <td style="padding:35px 52px"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                    </td>
+                                    <td style="padding:35px 32px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo2.png"></td>
+                                </tr>
+                               
+                                <tr>
+                                    <td style="padding-top: 0;" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/cover-page-image.png"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
             <div id="pdfdiv">
                 <% include partials/scripts %>
                     <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
@@ -145,7 +122,7 @@
                     </div>
     </div>
         <div style="position:fixed;top: 6px;right: 32px;" class="dopdf">
-            <a href="/inventory-templates/<%= name %>/<%= requestId %>/<%= quoteId %>/pdf"><img src="https://zoho.omnigroup.com.au/assets/images/pdf.png"></a>
+            <a href="/<%= name %>/<%= requestId %>/<%= quoteId %>/pdf"><img src="https://zoho.omnigroup.com.au/assets/images/pdf.png"></a>
         </div>
 </body>
 

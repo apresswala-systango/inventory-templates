@@ -134,7 +134,7 @@ router.get('/:templateName/:quoteId/viewQuote', async function(req, res, next) {
 
 //--- Download template ---//
 router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, next) {
-    const serverURL = "http://localhost:"+config.port+"/"; //"https://zoho.omnigroup.com.au/inventory-templates/";
+    const serverURL = "https://zoho.omnigroup.com.au/inventory-templates/"; //"http://localhost:"+config.port+"/";
     var requestId = req.params.requestId;
     var templateName = req.params.templateName;
     var quoteNo = req.params.quoteNo;

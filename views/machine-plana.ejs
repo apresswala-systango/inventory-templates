@@ -9,28 +9,48 @@
     
     <body>
         <% include partials/menu %>
-            <div class="content">
-                <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="100px"></center>
-                <div id="coverPage">
-                    <% include partials/scripts %>
-                        <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
-                        <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
-                            <tbody>
-                                <tr>
-                                    <td style="padding:35px 52px"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
-                                    </td>
-                                    <td style="padding:35px 32px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo2.png"></td>
-                                </tr>
-                               
-                                <tr>
-                                    <td style="padding-top: 0;" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/cover-page-image.png"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </div>
+        <div class="content">
+            <center class="download-pdf download-div">Downloading...<img src="https://zoho.omnigroup.com.au/assets/images/download.gif" height="60px"></center>
+            <div id="coverPage">
+                <% include partials/scripts %>
+                    <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                    <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px; font-size:16px;">
+                        <tbody>
+                            <tr>                               
+                                <td style="padding:35px 32px" colspan="2"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-1-Header.png">
+                                </td>
+                                <!-- <td style="padding:35px 32px" ><img style="height:180px;" src="https://zoho.omnigroup.com.au/assets/images/ThePerfectPalletWrapSolution.png"></td>
+                                <td style="padding:35px 52px" align="right" valign="top"><img style="height:90px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                </td> -->
+                            </tr>
+                            <tr>
+                                <td class="template-heading" colspan="2">Proposal</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Client:</b>&nbsp;&nbsp;
+                                    <%= accountDetails.Account_Name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Packaging Consultant:</b>&nbsp;&nbsp;
+                                    <%= quoteDetails.Owner.name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;
+                                    <%= quoteDetails.Quote_No %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top:114px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
             <div id="pdfdiv">
                 <% include partials/scripts %>
+                    <div>
                     <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
                     <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
                     <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
@@ -38,7 +58,7 @@
                         <thead>
                             <tr>
                                 <td style="padding:35px 32px" >&nbsp;</td>
-                                <td style="padding:35px 52px" align="right"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                <td style="padding:35px 52px" align="right"><img style="height:90px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
                                 </td>
                                
                             </tr>
@@ -70,7 +90,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem;">
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem; line-height:2.8rem">
                                     <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> “Thank you for your time and interest shown in the ‘Perfect Pallet Wrapping Solution’. On the following pages you will find all the information on the solution we are proposing.”<br><br> The Omni Pallet Wrappers
                                         and Omni Stretch Wrap have been engineered together to minimise the required amount of stretch film to wrap a pallet while eliminating film breakages and improving load containment. It’s the award winning Omni Pallet
                                         Wrapping Solution.<br><br> Our goals in providing you ‘The Perfect Pallet Wrapping Solution’ are:<br> • Reduce your stretch film usage by 50%<br> • Eliminate your stretch film breakages<br> • Save you 20% on pallet
@@ -82,11 +102,208 @@
                                 </td>
                             </tr>
                             <tr>
-                                    <td colspan="2" style="padding:75px 55px 0px 55px" align="center">
-                                        <img src="https://zoho.omnigroup.com.au/assets/images/footer.png" width="100%"></td>
-                                </tr>
+                                    <td colspan="2" style="padding:155px 55px 0px 55px;" align="center">
+                                        <img src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-2-bottom.png" width="100%"></td>
+                            </tr>
+                            <!-- <tr>
+                                <td colspan="2" style="padding:15px 55px 0px 55px; color:#000;font-size:12px" align="left">
+                                    <div style="display:flex; align-items: center;">
+                                       <div style="width:85%; padding:0 10px; border-top: 1px solid #000;height: 1px;line-height: 0.1em; margin-right: 5px;"></div>
+                                       <div style="width:15%;">Machine Plana Proposal Page 2</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: #fff;page-break-before: always">
+                                    India Is my Country
+                                </td>
+                            </tr> -->
                     </table>
-            </div>
+                    </div>
+
+                    <div style="page-break-before: always">
+                            <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                            <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
+                            <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
+                                    <thead>
+                                            <tr>
+                                                <td colspan="2" style="padding:25px 52px 45px 52px"><img width="100%" src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-3-header.png"></td>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td colspan="2" style="padding: 0px 32px 0px 52px">
+                                                <div style="min-height: 370px;">
+                                                <table cellspacing="0" cellpadding="0" border="1" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <td style="width: 15%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
+                                                            <td style="width: 47%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
+                                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">MOQ</td>
+                                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">USAGE UNIT</td>
+                                                            <td align="right" style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% for(var i=0; i<quoteDetails.Product_Details.length; i++) { %>                             
+                                                            <tr>
+                                                                <td style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                                    <%= quoteDetails.Product_Details[i].product.Product_Code %>
+                                                                </td>
+                                                                <td style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                                    <%= quoteDetails.Product_Details[i].product_description %>
+                                                                </td>
+                                                                <td align="center" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                                    <%= quoteDetails.Product_Details[i].quantity %>
+                                                                </td>
+                                                                <td align="center" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                                    <%= quoteDetails.Product_Details[i].Usage_Unit %>
+                                                                </td>
+                                                                <td align="right" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
+                                                                    <%= quoteDetails.Product_Details[i].net_total %>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+                                                    </tbody>
+                                                </div>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="padding:32px 32px 32px 52px" align="right">
+                                                <table cellspacing="5" cellpadding="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td valign="top" style="font-size:1.4rem !important;font-weight: bold">Time of Delivery</td>
+                                                        <td valign="top" style="font-size:1.4rem !important;">Text</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="font-size:1.4rem !important;font-weight: bold">Payment</td>
+                                                        <td valign="top" style="font-size:1.4rem !important">Text</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="20%" valign="top" style="font-size:1.4rem !important;font-weight: bold">
+                                                            Offer Validity: </td>
+                                                        <td width="80%" style="font-size:1.4rem !important;">This quotation is valid 30 days from the date mentioned.<br>All prices are subject to currency fluctuation.<br>
+                                                            <p style="font-size:1.4rem !important;font-weight: bold">
+                                                                <%= quoteDetails.Terms_and_Conditions %>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top" style="font-size:1.4rem !important;font-weight: bold">&nbsp;</td>
+                                                        <td style="font-size:1.4rem !important;font-weight: bold">*All prices ex GST</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/DashedLine.png">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="padding:65px 32px 32px 65px">
+                                                    <!-- <img width="100%" src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-3-footerBig.png"> -->
+                                                <p style="font-size: 3.4rem;color:#b5121b;font-weight: bold">Machinery Service Membership</p>
+                                                <p style="font-size: 2.7rem;font-weight: bold">Why you need a machine service solution?</p>
+                                                <table cellspacing="0" cellpadding="4" border="0" width="100%" style="line-height:1rem">
+                                                    <tr>
+                                                        <td colspan="2" align="left">
+                                                            <img width='200px' src="https://zoho.omnigroup.com.au/assets/images/ReduceCosts.png">
+                                                        </td>
+                                                    </tr>                        
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">All members receive a 20% discount on machine parts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">It’s FREE - No fee to join our machine service membership</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Fixed service rates during your membership</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Preventative maintenance will reduce the overall service costs</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Receive an extra 3 months FREE warranty when you join our service membership*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" align="left">
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>    
+                                                    <tr>
+                                                        <td colspan="2" align="left">
+                                                            <img width='270px' src="https://zoho.omnigroup.com.au/assets/images/EliminateDowntime.png">
+                                                        </td>
+                                                    </tr>                        
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Have peace of mind! Leave it to us to monitor your machinery to ensure its maintained and regularly serviced</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Prevent machine breakdown with pro-active machine checks</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                        <td style="font-size:1.2rem;" valign="top">Machine breakdowns cause production downtime and increase operational costs</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                            <td colspan="2" align="left">
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td colspan="2" align="left">
+                                                                <img width='270px' src="https://zoho.omnigroup.com.au/assets/images/ImproveReliablity.png">
+                                                            </td>
+                                                        </tr>                        
+                                                        <tr>
+                                                            <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                            <td style="font-size:1.2rem;" valign="top">With our service solution, we will respond promptly to ensure your needs are resolved effectively. You can rely on us 100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                            <td style="font-size:1.2rem;" valign="top">Service priorities are given to clients on maintenance agreements</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                            <td style="font-size:1.2rem;" valign="top">Extensive network of service technicians across Australia</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-size:1.2rem;" valign="top">&bull;</td>
+                                                            <td style="font-size:1.2rem;" valign="top">Improves equipment performance and extends working life</td>
+                                                        </tr>                                                        
+                                                </table>    
+                                                <!-- <p style="font-size: 1.4rem;"> To ensure optimum performance, we recommend that all wear parts are checked regularly. Omni Group has a full back up service team Australia wide so you can be certain that you will be looked after. The maintenance for a
+                                                    Omni Pallet Wrapping Machines is very minimal due to the reliability of the machine. Depending upon daily volumes it would be recommended that a maintenance service occurs on average every 3 months. Sign up to our Maintenance
+                                                    Service Agreement which is for a period of 12 months and is automatically renewed for each 12 month periods.</p>
+                                                <p style="font-size: 1.4rem;font-weight: bold">Benefits of the Maintenance Service Agreement are:</p>
+                                                <p style="font-size: 1.4rem">
+                                                    - Reduces the likelihood of a breakdown and the associated loss of production and cost generation<br> - Automatic call out by Omni Group Service Team when next service is due<br> - Improves equipment performance and
+                                                    extends working life<br> - Lower rates on labour<br> - 10% Discount rate on spare parts<br> - Preventative maintenance can reduce the overall maintenance costs<br> - Priority on breakdowns
+                                                </p> -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                            </table> 
+                            <table width="100%">                        
+                                <tr>
+                                    <td colspan="2" style="padding:10px 0 0 0;" align="center">
+                                        <img src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-3-footer.png" width="100%">
+                                    </td>
+                                </tr>
+                                
+                            </table>   
+                    </div>
+                </div>
                 <div id="lastPages" style="margin: 0px;padding: 0px">
                         <% include partials/scripts %>
                             <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
@@ -94,21 +311,19 @@
                             <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;bottom:0px"></div>
                             <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tbody>
-                                    <tr>
-                                        <!-- <td style="background: #fff;page-break-before: always">
-                                            <div style="position: relative; right: -5px; bottom: -20px; "><img src="https://zoho.omnigroup.com.au/assets/images/pic-4.png" width="100%"></div>
-                                        </td> -->
+                                    <tr>                                            
+                                        <td style="page-break-before: always">
+                                            <% include partials/product-sepcifications-with-image %>
+                                        </td>
+                                        </tr>
+                                    <tr>                                        
                                         <td style="page-break-before: always">
                                             <% include partials/product-specifications-plana %>
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <td style="page-break-before: always">
-                                            <% include partials/omni-base %>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background: #fff;page-break-before: always">
                                             <% include partials/add %>
                                         </td>
                                     </tr>

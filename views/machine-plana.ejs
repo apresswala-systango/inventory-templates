@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
+                                <td colspan="2" style="padding:0px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
                                      <% var quoteDate = new Date(quoteDetails.Created_Time);
                                         var dd = quoteDate.getDate();
                                         var mm = quoteDate.getMonth() + 1; //January is 0!
@@ -81,8 +81,8 @@
                                         mm = '0' + mm;
                                         } 
                                         quoteDate = dd + '/' + mm + '/' + yyyy; %>
-                                        <%= quoteDate %><br><br>
-                                            <% contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
+                                        <%= quoteDate %><br>
+                                            <%= contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
                                                 <%= accountDetails.Account_Name %><br>
                                                     <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
                                                         <br>
@@ -93,7 +93,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
+                                <td colspan="2" style="padding:0px 32px 20px 52px;font-size: 23px; line-height:2.8rem">
 									<div style="font-size: 22px; line-height:2.6rem; width:91%">
                                     <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> “Thank you for your time and interest shown in the ‘Perfect Pallet Wrapping Solution’. On the following pages you will find all the information on the solution we are proposing.”<br><br> The Omni Pallet Wrappers
                                         and Omni Stretch Wrap have been engineered together to minimise the required amount of stretch film to wrap a pallet while eliminating film breakages and improving load containment. It’s the award winning Omni Pallet
@@ -105,7 +105,7 @@
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Improve your pallet load containment <br>
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Increase your warehouse efficiency <br>
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Prevent back injury from hand wrapping pallets
-                                        <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br><br><br>
+                                        <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br>
 										</div>
                                         <p style="font-weight: bold;font-size: 22px; line-height:2.8rem">
                                             <%= quoteDetails.Owner.name %>
@@ -148,10 +148,10 @@
                                                 <table cellspacing="0" cellpadding="0" border="1" width="100%">
                                                     <thead>
                                                         <tr>
-                                                            <td style="width: 15%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
+                                                            <td style="width: 19%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
                                                             <td style="width: 47%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
-                                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">MOQ</td>
-                                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">USAGE UNIT</td>
+                                                            <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">QTY</td>
+                                                            <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">UOM</td>
                                                             <td align="right" style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
                                                         </tr>
                                                     </thead>
@@ -185,11 +185,11 @@
                                                 <table cellspacing="5" cellpadding="0" border="0" width="100%">
                                                     <tr>
                                                         <td valign="top" style="font-size:1.4rem !important;font-weight: bold">Time of Delivery</td>
-                                                        <td valign="top" style="font-size:1.4rem !important;">Text</td>
+                                                        <td valign="top" style="font-size:1.4rem !important;"><%= quoteDetails.Time_of_Delivery ? quoteDetails.Time_of_Delivery : '' %></td>
                                                     </tr>
                                                     <tr>
                                                         <td valign="top" style="font-size:1.4rem !important;font-weight: bold">Payment</td>
-                                                        <td valign="top" style="font-size:1.4rem !important">Text</td>
+                                                        <td valign="top" style="font-size:1.4rem !important"><%= quoteDetails.Payment ? quoteDetails.Payment : '' %></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="20%" valign="top" style="font-size:1.4rem !important;font-weight: bold">

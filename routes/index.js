@@ -179,12 +179,17 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
         await browser.close();
         // // Merge And Download
         pdfFiles = pdfPath1 + " " + pdfPath + " " + pdfPath2;
-        const outputFile = templateName + '-Proposal.pdf';
+        const outputFile = templateName + '-proposal-'+quoteNo+'.pdf';
         const { stdout, stderr } = await exec("/usr/bin/gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=/tmp/" + outputFile + " -dBATCH " + pdfFiles);
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
         res.download("/tmp/" + outputFile, outputFile);
         // res.download(pdfPath2, outputFile);
+        fs.unlink(pdfPath, (err) => {});
+        fs.unlink(pdfPath1, (err) => {});
+        fs.unlink(pdfPath2, (err) => {});
+        //fs.unlink(htmlFile, (err) => {});
+        //fs.unlink("/tmp/"+outputFile, (err) => {});
     })();
 });
 module.exports = router;

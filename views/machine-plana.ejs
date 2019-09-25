@@ -5,6 +5,9 @@
         <title>
             <%= name %>
         </title>
+		<style>
+			
+		</style>		
     </head>
     
     <body>
@@ -28,22 +31,22 @@
                                 <td class="template-heading" colspan="2">Proposal</td>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Client:</b>&nbsp;&nbsp;
+                                <td style="padding: 5px 52px;font-size: 23px; line-height:2.8rem" colspan="2"><b style="font-size: 23px; line-height:2.8rem">Client:</b>&nbsp;&nbsp;
                                     <%= accountDetails.Account_Name %>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Packaging Consultant:</b>&nbsp;&nbsp;
+                                <td style="padding: 5px 52px;font-size: 23px; line-height:2.8rem" colspan="2"><b style="font-size: 23px; line-height:2.8rem">Packaging Consultant:</b>&nbsp;&nbsp;
                                     <%= quoteDetails.Owner.name %>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 52px;font-size: 1.6rem;" colspan="2"><b style="font-size: 1.6rem;">Quote Ref No.:</b>&nbsp;&nbsp;
+                                <td style="padding: 5px 52px;font-size: 23px; line-height:2.8rem" colspan="2"><b style="font-size: 23px; line-height:2.8rem">Quote Ref No.:</b>&nbsp;&nbsp;
                                     <%= quoteDetails.Quote_No %>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-top:112px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
+                                <td style="padding-top:70px" colspan="2" align="right"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/machine-base-cover.png"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -58,14 +61,14 @@
                         <thead>
                             <tr>
                                 <td style="padding:35px 32px" >&nbsp;</td>
-                                <td style="padding:35px 52px" align="right"><img style="height:90px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
+                                <td style="padding:35px 52px" align="right"><img height="120px" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
                                 </td>
                                
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem;">
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
                                      <% var quoteDate = new Date(quoteDetails.Created_Time);
                                         var dd = quoteDate.getDate();
                                         var mm = quoteDate.getMonth() + 1; //January is 0!
@@ -90,19 +93,27 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 1.4rem; line-height:2.8rem">
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
+									<div style="font-size: 22px; line-height:2.6rem; width:91%">
                                     <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> “Thank you for your time and interest shown in the ‘Perfect Pallet Wrapping Solution’. On the following pages you will find all the information on the solution we are proposing.”<br><br> The Omni Pallet Wrappers
                                         and Omni Stretch Wrap have been engineered together to minimise the required amount of stretch film to wrap a pallet while eliminating film breakages and improving load containment. It’s the award winning Omni Pallet
-                                        Wrapping Solution.<br><br> Our goals in providing you ‘The Perfect Pallet Wrapping Solution’ are:<br> • Reduce your stretch film usage by 50%<br> • Eliminate your stretch film breakages<br> • Save you 20% on pallet
-                                        wrapping costs<br> • Reduce plastic waste disposal and save our environment<br> • Improve your pallet load containment <br> • Increase your warehouse efficiency <br> • Prevent back injury from hand wrapping pallets
+                                        Wrapping Solution.<br><br> Our goals in providing you ‘The Perfect Pallet Wrapping Solution’ are:<br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Reduce your stretch film usage by 50%<br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Eliminate your stretch film breakages<br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Save you 20% on pallet wrapping costs<br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Reduce plastic waste disposal and save our environment<br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Improve your pallet load containment <br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Increase your warehouse efficiency <br>
+										 &nbsp; &nbsp; &nbsp; &nbsp;• Prevent back injury from hand wrapping pallets
                                         <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br><br><br>
-                                        <p style="font-weight: bold;font-size:1.4rem">
+										</div>
+                                        <p style="font-weight: bold;font-size: 22px; line-height:2.8rem">
                                             <%= quoteDetails.Owner.name %>
                                         </p>
                                 </td>
                             </tr>
                             <tr>
-                                    <td colspan="2" style="padding:155px 55px 0px 55px;" align="center">
+                                    <td colspan="2" style="padding:5px 55px 0px 55px;" align="center">
                                         <img src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-2-bottom.png" width="100%"></td>
                             </tr>
                             <!-- <tr>
@@ -204,12 +215,12 @@
                                         <tr>
                                             <td colspan="2" style="padding:65px 32px 32px 65px">
                                                     <!-- <img width="100%" src="https://zoho.omnigroup.com.au/assets/images/Omni-Quote-Template_Machine_Plana-3-footerBig.png"> -->
-                                                <p style="font-size: 3.4rem;color:#b5121b;font-weight: bold">Machinery Service Membership</p>
-                                                <p style="font-size: 2.7rem;font-weight: bold">Why you need a machine service solution?</p>
+                                                <p style="font-size: 3rem;color:#b5121b;font-weight: bold">Machinery Service Membership</p>
+                                                <p style="font-size: 2.3rem;font-weight: bold">Why you need a machine service solution?</p>
                                                 <table cellspacing="0" cellpadding="4" border="0" width="100%" style="line-height:1rem">
                                                     <tr>
                                                         <td colspan="2" align="left">
-                                                            <img width='200px' src="https://zoho.omnigroup.com.au/assets/images/ReduceCosts.png">
+                                                            <img width='180px' src="https://zoho.omnigroup.com.au/assets/images/ReduceCosts.png">
                                                         </td>
                                                     </tr>                        
                                                     <tr>
@@ -239,7 +250,7 @@
                                                     </tr>    
                                                     <tr>
                                                         <td colspan="2" align="left">
-                                                            <img width='270px' src="https://zoho.omnigroup.com.au/assets/images/EliminateDowntime.png">
+                                                            <img width='250px' src="https://zoho.omnigroup.com.au/assets/images/EliminateDowntime.png">
                                                         </td>
                                                     </tr>                        
                                                     <tr>
@@ -262,7 +273,7 @@
                                                         </tr>    
                                                         <tr>
                                                             <td colspan="2" align="left">
-                                                                <img width='270px' src="https://zoho.omnigroup.com.au/assets/images/ImproveReliablity.png">
+                                                                <img width='250px' src="https://zoho.omnigroup.com.au/assets/images/ImproveReliablity.png">
                                                             </td>
                                                         </tr>                        
                                                         <tr>

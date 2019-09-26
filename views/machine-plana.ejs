@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2" style="padding:0px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
                                      <% var quoteDate = new Date(quoteDetails.Created_Time);
                                         var dd = quoteDate.getDate();
                                         var mm = quoteDate.getMonth() + 1; //January is 0!
@@ -81,7 +81,7 @@
                                         mm = '0' + mm;
                                         } 
                                         quoteDate = dd + '/' + mm + '/' + yyyy; %>
-                                        <%= quoteDate %><br>
+                                        <%= quoteDate %><br><br>
                                             <%= contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
                                                 <%= accountDetails.Account_Name %><br>
                                                     <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
@@ -93,7 +93,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="padding:0px 32px 20px 52px;font-size: 23px; line-height:2.8rem">
+                                <td colspan="2" style="padding:32px 32px 32px 52px;font-size: 23px; line-height:2.8rem">
 									<div style="font-size: 22px; line-height:2.6rem; width:91%">
                                     <%= contactDetails ? 'Dear '+contactDetails.data[0].First_Name+',' : '' %><br><br> “Thank you for your time and interest shown in the ‘Perfect Pallet Wrapping Solution’. On the following pages you will find all the information on the solution we are proposing.”<br><br> The Omni Pallet Wrappers
                                         and Omni Stretch Wrap have been engineered together to minimise the required amount of stretch film to wrap a pallet while eliminating film breakages and improving load containment. It’s the award winning Omni Pallet
@@ -105,7 +105,7 @@
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Improve your pallet load containment <br>
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Increase your warehouse efficiency <br>
 										 &nbsp; &nbsp; &nbsp; &nbsp;• Prevent back injury from hand wrapping pallets
-                                        <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br>
+                                        <br><br> I look forward to going through this proposal with you when we next meet. If you have any questions in the meantime, please don’t hesitate to contact me.<br><br> Best regards<br><br>
 										</div>
                                         <p style="font-weight: bold;font-size: 22px; line-height:2.8rem">
                                             <%= quoteDetails.Owner.name %>

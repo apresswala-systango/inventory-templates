@@ -183,13 +183,19 @@ router.get('/:templateName/:requestId/:quoteNo/pdf', async function(req, res, ne
         const { stdout, stderr } = await exec("/usr/bin/gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=/tmp/" + outputFile + " -dBATCH " + pdfFiles);
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
-        res.download("/tmp/" + outputFile, outputFile);
+        res.download("/tmp/" + outputFile, outputFile, (err) => {
+            if (err) {
+            // Handle error, but keep in mind the response may be partially-sent
+            // so check res.headersSent
+            } else {
+                fs.unlink(pdfPath, (err) => {});
+                fs.unlink(pdfPath1, (err) => {});
+                fs.unlink(pdfPath2, (err) => {});
+                fs.unlink("/tmp/"+outputFile, (err) => {});
+                //fs.unlink(htmlFile, (err) => {}); 
+            }
+        });
         // res.download(pdfPath2, outputFile);
-        fs.unlink(pdfPath, (err) => {});
-        fs.unlink(pdfPath1, (err) => {});
-        fs.unlink(pdfPath2, (err) => {});
-        //fs.unlink(htmlFile, (err) => {});
-        //fs.unlink("/tmp/"+outputFile, (err) => {});
     })();
 });
 module.exports = router;

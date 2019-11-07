@@ -160,16 +160,16 @@
                                                                 <%= quoteDetails.Product_Details[i].product.Product_Code %>
                                                             </td>
                                                             <td style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
-                                                                <%= quoteDetails.Product_Details[i].product_description %>
+                                                                <%= quoteDetails.Product_Details[i].product.name %>
                                                             </td>
                                                             <td align="center" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
                                                                 <%= quoteDetails.Product_Details[i].quantity %>
                                                             </td>
                                                             <td align="center" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
-                                                                <%= quoteDetails.Product_Details[i].Usage_Unit %>
+                                                                <%= quoteDetails.Product_Details[i].Unit_of_Measure %>
                                                             </td>
                                                             <td align="right" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
-                                                                <%= quoteDetails.Product_Details[i].net_total %>
+                                                                <%= quoteDetails.Product_Details[i].list_price.toFixed(2) %>
                                                             </td>
                                                         </tr>
                                                         <% } %>

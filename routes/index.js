@@ -62,6 +62,7 @@ let fetchCRMDetails = async function(quoteId) {
             };
             let zCRMProductFullResp = await fetchResponse(getProductDetailsEndPoint);
             zCRMQuoteFullResp.data[0].Product_Details[i].Usage_Unit = zCRMProductFullResp.data[0].Usage_Unit;
+            zCRMQuoteFullResp.data[0].Product_Details[i].Unit_of_Measure = zCRMProductFullResp.data[0].Unit_of_Measure;
         }
     }
     var getAccountDetailsEndPoint = {
@@ -118,18 +119,30 @@ router.get('/:templateName/:quoteId/viewQuote', async function(req, res, next) {
     var quoteId = req.params.quoteId;
     let dataset = await fetchCRMDetails(quoteId);
     var requestId = uuid4();
-    res.render(templateName, {
-        name: templateName,
-        quoteId: quoteId,
-        requestId: requestId,
-        quoteDetails: dataset.quoteDetails.data[0],
-        accountDetails: dataset.accountDetails.data[0],
-        contactDetails: dataset.contactDetails
-    }, function(err, output) {
-        let htmlFile = "/tmp/" + requestId + ".html";
-        fs.writeFileSync(htmlFile, output);
-        res.send(output);
-    });
+    
+    if (!dataset.quoteDetails.data[0].Margin_Override && dataset.quoteDetails.data[0].Margin < 25) {
+        res.render('marginfail', {
+            requestId: requestId,
+        }, function(err, output) {
+            let htmlFile = "/tmp/" + requestId + ".html";
+            fs.writeFileSync(htmlFile, output);
+            res.send(output);
+        });
+    } else {
+    
+        res.render(templateName, {
+            name: templateName,
+            quoteId: quoteId,
+            requestId: requestId,
+            quoteDetails: dataset.quoteDetails.data[0],
+            accountDetails: dataset.accountDetails.data[0],
+            contactDetails: dataset.contactDetails
+        }, function(err, output) {
+            let htmlFile = "/tmp/" + requestId + ".html";
+            fs.writeFileSync(htmlFile, output);
+            res.send(output);
+        });
+    }
 });
 
 //--- Download template ---//

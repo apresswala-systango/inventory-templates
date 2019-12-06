@@ -69,11 +69,11 @@
                                         <tr>
                                             <td width="70%" style="font-size: 1.4rem;"><b style="font-size: 24px"><%= accountDetails.Account_Name %></b><br>
                                                 <% contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
-                                                    <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
+                                                    <%= accountDetails.Shipping_Street1 ? accountDetails.Shipping_Street1 : '' %>
                                                         <br>
-                                                        <%= quoteDetails.Billing_City ? quoteDetails.Billing_City+', ' : '' %>
-                                                            <%= quoteDetails.Billing_State ? quoteDetails.Billing_State : '' %>
-                                                                <%= quoteDetails.Billing_Code ? quoteDetails.Billing_Code : '' %><br>
+                                                        <%= accountDetails.Shipping_Suburb ? accountDetails.Shipping_Suburb+', ' : '' %>
+                                                            <%= accountDetails.Shipping_State1 ? accountDetails.Shipping_State1 : '' %>
+                                                                <%= accountDetails.Shipping_Postcode ? accountDetails.Shipping_Postcode : '' %><br>
                                                                     <% contactDetails ? 'Phone: '+contactDetails.data[0].Phone : '' %>
                                             </td>
                                             <td width="30%" align="right">

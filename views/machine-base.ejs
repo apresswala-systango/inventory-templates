@@ -52,7 +52,7 @@
         <div id="pdfdiv">
             <% include partials/scripts %>
                 <div>
-                <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                <!-- <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div> -->
                 <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
                 <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
                 <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
@@ -82,11 +82,11 @@
                                     <%= quoteDate %><br><br>
                                         <%= contactDetails ? contactDetails.data[0].Full_Name : '' %><br>
                                             <%= accountDetails.Account_Name %><br>
-                                                <%= quoteDetails.Billing_Street ? quoteDetails.Billing_Street : '' %>
+                                                <%= accountDetails.Shipping_Street1 ? accountDetails.Shipping_Street1 : '' %>
                                                     <br>
-                                                    <%= quoteDetails.Billing_City ? quoteDetails.Billing_City+', ' : '' %>
-                                                        <%= quoteDetails.Billing_State ? quoteDetails.Billing_State : '' %>
-                                                            <%= quoteDetails.Billing_Code ? quoteDetails.Billing_Code : '' %>                                                              
+                                                    <%= accountDetails.Shipping_Suburb ? accountDetails.Shipping_Suburb+', ' : '' %>
+                                                        <%= accountDetails.Shipping_State1 ? accountDetails.Shipping_State1 : '' %>
+                                                            <%= accountDetails.Shipping_Postcode ? accountDetails.Shipping_Postcode : '' %>                                                              
                                                
                             </td>
                         </tr>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div style="page-break-before: always">
-                        <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                        <!-- <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div> -->
                         <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
                         <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
                         <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
@@ -146,8 +146,8 @@
                                             <table cellspacing="0" cellpadding="0" border="1" width="100%">
                                                 <thead>
                                                     <tr>
-                                                        <td style="width: 19%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
-                                                        <td style="width: 47%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
+                                                        <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> CODE</td>
+                                                        <td style="width: 60%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem;"> DESCRIPTION</td>
                                                         <td style="width: 8%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">QTY</td>
                                                         <td style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem" align="center">UOM</td>
                                                         <td align="right" style="width: 12%;background: #231f20; padding: 10px; color: #fff; border:none; font-weight: bold;font-size: 1.4rem"> UNIT PRICE</td>
@@ -161,6 +161,7 @@
                                                             </td>
                                                             <td style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
                                                                 <%= quoteDetails.Product_Details[i].product.name %>
+                                                                <span style="font-size: 1.1rem"><br/><%= quoteDetails.Product_Details[i].product_description %></span>
                                                             </td>
                                                             <td align="center" style="padding: 5px; color: #231f20; border-color: #231f20;font-size: 1.4rem">
                                                                 <%= quoteDetails.Product_Details[i].quantity %>
@@ -315,7 +316,7 @@
             </div>
             <div id="lastPages" style="margin: 0px;padding: 0px">
                     <% include partials/scripts %>
-                        <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div>
+                        <!-- <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div> -->
                         <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
                         <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;bottom:0px"></div>
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">

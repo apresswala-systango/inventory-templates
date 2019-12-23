@@ -51,7 +51,7 @@
                     <!-- <div style="position:fixed;left:0px;top:0px;z-index: -2;"><img style="width:100%;" src="https://zoho.omnigroup.com.au/assets/images/watermark.png"></div> -->
                     <div style="position:fixed;left:0px;background: #b62e28;height:52vh;width:20px"></div>
                     <div style="position:fixed;left:0px;background: #231f20;height:50vh;width:20px;top:50vh"></div>
-                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
+                    <table width=""100% cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-top:-10px;">
                         <thead>
                             <tr>
                                 <td style="padding:35px 52px"><img style="height:120px;" src="https://zoho.omnigroup.com.au/assets/images/logo1.png">
@@ -161,8 +161,23 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="padding:32px 32px 32px 52px" align="right">
-                                    <div style="border-radius: 10px; border: 2px solid #333; padding: 10px; width: 45%;">
+                                <td colspan="2" style="padding: 0px 0px 0px 0px">
+                                    <table width="100%" border="0">
+                                        <tr>
+                                            <td width="50%" style="padding:32px 32px 32px 52px; width:50%" align="left" valign="top">
+                                    <div style="border-radius: 10px; border: 2px solid #333; padding: 10px; max-width: 100%; width: 100%;height: auto; min-height: 110px;">
+                                        <table cellspacing="5" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="padding:0px 0px 10px 0px;font-size:1rem !important;font-weight: bold" colspan="2">NOTES:</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:1rem !important;"><%= quoteDetails.Notes1 %></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td width="50%" style="padding:32px 32px 32px 52px; width:50%" align="right" valign="top">
+                                    <div style="border-radius: 10px; border: 2px solid #333; padding: 10px; max-width: 100%; width: 100%; height: auto; min-height: 110px;">
                                         <table cellspacing="5" cellpadding="0" border="0" width="100%">
                                             <tr>
                                                 <td style="padding:0px 0px 10px 0px;font-size:1rem !important;font-weight: bold" colspan="2">TERMS & CONDITIONS:</td>
@@ -186,6 +201,10 @@
                                         </table>
                                     </div>
                                 </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                
                             </tr>
 
                         </tbody>
